@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map - SRM Campus Helper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-left">
+      <span class="title">SRM CAMPUS HELPER</span>
+    </div>
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="canteen.html">Canteen</a>
+      <a href="library.html">Library</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="events.html">Events</a>
+      <a href="map.html" class="active">Map</a>
+      <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h2>🗺️ Interactive Campus Map</h2>
+    <p>Click on a location card below to explore its map view.</p>
+
+    <!-- Map Cards -->
+    <div class="map-container">
+      <!-- Tech Block -->
+      <div class="map-card" onclick="openMap('tech')">
+        <img src="images/techpark.jpg" alt="Tech Block">
+        <h3>Tech Block</h3>
+        <p>Academic & Research Block of SRM Campus</p>
+      </div>
+
+      <!-- Hostel -->
+      <div class="map-card" onclick="openMap('hostel')">
+        <img src="images/hostel.jpeg" alt="Hostel">
+        <h3>Hostel</h3>
+        <p>Residential Hostel facilities for students</p>
+      </div>
+
+      <!-- Canteen -->
+      <div class="map-card" onclick="openMap('canteen')">
+        <img src="images/canteen.jpeg" alt="Canteen">
+        <h3>Main Canteen</h3>
+        <p>Popular dining spot for students</p>
+      </div>
+    </div>
+
+    <!-- Map Display Section -->
+    <div class="map-display" id="mapDisplay">
+      <h3>📍 Location Preview</h3>
+      <iframe id="mapFrame" 
+              src="" 
+              width="100%" 
+              height="450" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy">
+      </iframe>
+    </div>
+  </main>
+
+  <script>
+  function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  }
+
+  // Load saved theme
+  window.onload = () => {
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+  };
+
+  // ✅ Updated Map switching with working links
+  function openMap(location) {
+    let url = "";
+    if (location === "tech") {
+      url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.749214!2d80.045654!3d12.823485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f73ff8913d45%3A0x6451dbbb1e5ee25d!2sSRM%20Tech%20Park!5e0!3m2!1sen!2sin!4v1694356994289!5m2!1sen!2sin";
+    } 
+    else if (location === "hostel") {
+      url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7537!2d80.0447!3d12.8239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f73ff9a1e54f%3A0xadbcb7c4c7d9a2a!2sSRM%20Hostels!5e0!3m2!1sen!2sin!4v1694357156430!5m2!1sen!2sin";
+    } 
+    else if (location === "canteen") {
+      url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7505!2d80.0462!3d12.8232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f73ff9a1e54f%3A0xb0a5dba1c8cd29d7!2sSRM%20Canteen!5e0!3m2!1sen!2sin!4v1694357262174!5m2!1sen!2sin";
+    }
+
+    document.getElementById("mapFrame").src = url;
+    document.getElementById("mapDisplay").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events - SRM Campus Helper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-left">
+      <span class="title">SRM CAMPUS HELPER</span>
+    </div>
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="canteen.html">Canteen</a>
+      <a href="library.html">Library</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="events.html" class="active">Events</a>
+      <a href="map.html">Map</a>
+      <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h2>📅 Upcoming Events at SRM</h2>
+    <p>Stay updated on the latest fests, hackathons, and symposiums happening on campus.</p>
+
+    <!-- Event 1 -->
+    <div class="event-card">
+      <h3>⚡ SMART PAPER_SHREDDER HACKATHON 2025</h3>
+      <p><b>Date:</b> 15 September 2025 (One-day event)</p>
+      <p><b>Type:</b> Technical Hackathon organized by SRMIST, Kattankulathur</p>
+      <p><a href="https://www.knowafest.com" target="_blank">knowafest.com</a></p>
+      <div class="countdown" data-date="2025-09-15T09:00:00"></div>
+    </div>
+
+    <!-- Event 2 -->
+    <div class="event-card">
+      <h3>🚀 Aaruush '25 – Techno-Management Fest</h3>
+      <p><b>Dates:</b> 1 – 4 September 2025</p>
+      <p><b>Details:</b> SRM’s flagship annual techno-management festival featuring workshops, competitions, and guest lectures.</p>
+      <p>
+        <a href="https://www.aaruush.org" target="_blank">aaruush.org</a> | 
+        <a href="https://www.instagram.com" target="_blank">Instagram</a>
+      </p>
+      <div class="countdown" data-date="2025-09-01T09:00:00"></div>
+    </div>
+
+    <!-- Event 3 -->
+    <div class="event-card">
+      <h3>🔬 NATIONAL SYMPOSIUM ON ELECTROCHEMICAL SCIENCE AND TECHNOLOGY (NSEST-2025)</h3>
+      <p><b>Dates:</b> 28 – 29 August 2025 (with sessions up to 5 September)</p>
+      <p><b>Venue:</b> SRMIST, Kattankulathur</p>
+      <p><b>Highlights:</b> A symposium bringing together academicians and researchers in electrochemical science.</p>
+      <div class="countdown" data-date="2025-08-28T09:00:00"></div>
+    </div>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    }
+
+    // Load saved theme
+    window.onload = () => {
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    };
+
+    // Countdown Logic
+    function updateCountdowns() {
+      document.querySelectorAll(".countdown").forEach(el => {
+        const targetDate = new Date(el.getAttribute("data-date"));
+        const now = new Date();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          el.innerHTML = "<span class='ended'>🎉 Event Started!</span>";
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const mins = Math.floor((diff / (1000 * 60)) % 60);
+        const secs = Math.floor((diff / 1000) % 60);
+
+        el.innerHTML = `<b>${days}d ${hours}h ${mins}m ${secs}s</b>`;
+      });
+    }
+
+    setInterval(updateCountdowns, 1000);
+    updateCountdowns();
+  </script>
+</body>
+</html>
+

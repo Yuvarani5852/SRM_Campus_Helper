@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SRM Campus Helper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-left">
+      <span class="title">SRM CAMPUS HELPER</span>
+    </div>
+    <div class="nav-right">
+      <a href="canteen.html">Canteens</a>
+      <a href="library.html">Libraries</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="events.html">Event</a>
+      <a href="map.html">Map</a>
+      <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section id="welcome" class="highlight">
+    <h2>🏫 Welcome to SRM Campus Helper</h2>
+    <p>Your one-stop companion for everything at SRM University.</p>
+    <p>We understand that navigating campus life can sometimes feel overwhelming — 
+       from finding classrooms and hostels, keeping track of academics, exploring clubs, 
+       to knowing about upcoming events.</p>
+    <p>That’s where SRM Campus Helper comes in.</p>
+  </section>
+
+  <!-- How We Help Students -->
+  <section id="help">
+    <h2>💡 How We Help Students</h2>
+    <p><b>📚 Library</b><br>
+      Find library locations, timings, and available resources.<br>
+      Quick access to study materials and reading spaces.</p>
+    <p><b>🍴 Canteen</b><br>
+      Explore nearby canteens and food courts.<br>
+      Know the popular spots for tasty and budget-friendly meals.</p>
+    <p><b>🎭 Clubs & Activities</b><br>
+      Stay updated on cultural, technical, and sports clubs.<br>
+      Learn how to join and participate in exciting events.</p>
+  </section>
+
+  <!-- Why SRM Campus Helper -->
+  <section id="why" class="highlight">
+    <h2>🌟 Why SRM Campus Helper?</h2>
+    <ul>
+      <li>Easy way to discover resources on campus.</li>
+      <li>Saves your time by giving quick information.</li>
+      <li>Created to make your student journey smoother.</li>
+    </ul>
+  </section>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+      // Save preference
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    }
+
+    // Load theme on page load
+    window.onload = () => {
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    };
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+

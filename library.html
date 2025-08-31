@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library - SRM Campus Helper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar (same as index & canteen) -->
+  <nav>
+    <div class="nav-left">
+      <span class="title">SRM CAMPUS HELPER</span>
+    </div>
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="canteen.html">Canteen</a>
+      <a href="library.html" class="active">Library</a>
+      <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h2>📚 About SRM Library</h2>
+    <p>
+      The SRM University libraries are the backbone of academic life. With thousands of books,
+      journals, digital resources, and comfortable study spaces, they support both learning and research.
+    </p>
+      <!-- Image Gallery -->
+    <div class="food-gallery">
+      <img src="images/srmlibrary.jpeg" alt="Central Library">
+      <img src="images/srmreadinghall.jpeg" alt="Reading Hall">
+      <img src="images/srmdigi.jpeg" alt="Digital Library">
+    </div>
+    <h3>Highlights</h3>
+    <ul>
+      <li>Central library with over <b>2,00,000 books</b> and digital access.</li>
+      <li>Departmental libraries for specialized subjects.</li>
+      <li>Spacious reading halls and e-learning zones.</li>
+      <li>Open to students, faculty, and researchers.</li>
+    </ul>
+
+    <h3>🏛️ Types of Libraries</h3>
+    <ul>
+      <li><b>Central Library</b> – Main library with books across all departments, e-resources, and large reading halls.</li>
+      <li><b>Department Libraries</b> – Small libraries inside each faculty/department with subject-focused books and journals.</li>
+      <li><b>Digital Library</b> – Access to online journals, e-books, research papers, and databases.</li>
+    </ul>
+
+    <!-- Services Table -->
+    <h3>📖 Services & Facilities</h3>
+    <table>
+      <tr><th>Service / Facility</th><th>Details</th></tr>
+      <tr><td><b>Opening Hours</b></td><td>8:00 AM – 9:00 PM (Mon – Sat)</td></tr>
+      <tr><td><b>Book Borrowing</b></td><td>4 books at a time, 14-day loan period</td></tr>
+      <tr><td><b>Reading Hall</b></td><td>Quiet space with 500+ seats</td></tr>
+      <tr><td><b>E-Resources</b></td><td>Online journals, databases, e-books</td></tr>
+      <tr><td><b>Membership</b></td><td>Free for all SRM students & staff</td></tr>
+      <tr><td><b>Late Fine</b></td><td>₹2 per day per book</td></tr>
+    </table>
+
+  </main>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    }
+
+    // Load theme on page load
+    window.onload = () => {
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    };
+  </script>
+</body>
+</html>

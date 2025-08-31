@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clubs - SRM Campus Helper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-left">
+      <span class="title">SRM CAMPUS HELPER</span>
+    </div>
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="canteen.html">Canteen</a>
+      <a href="library.html">Library</a>
+      <a href="clubs.html" class="active">Clubs</a>
+      <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h2>🎭 Clubs at SRM</h2>
+    <p>SRM University offers a variety of student-run clubs that promote cultural, technical, sports, and social activities. Students can learn, lead, and grow by joining these communities.</p>
+
+    <!-- Cultural Clubs -->
+    <section class="club-section">
+      <h3>🎭 Cultural Clubs</h3>
+      <div class="club-card">
+        <img src="images/arush.jpeg" alt="Aaruush">
+        <div>
+          <h4>Aaruush</h4>
+          <p>SRM’s national-level techno-management fest. Organized completely by students with workshops, exhibitions, lectures, and competitions.</p>
+          <button class="join-btn">Join Club</button>
+        </div>
+      </div>
+      <div class="club-card">
+        <img src="images/milan.jpeg" alt="Milan">
+        <div>
+          <h4>Milan</h4>
+          <p>SRM’s official cultural fest showcasing music, dance, theatre, fashion, and arts. Features celebrity shows and inter-college competitions.</p>
+          <button class="join-btn">Join Club</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Clubs -->
+    <section class="club-section">
+      <h3>💻 Technical Clubs</h3>
+      <div class="club-card">
+        <img src="images/Ieee.jpeg" alt="IEEE Club">
+        <div>
+          <h4>SRM IEEE Student Branch</h4>
+          <p>Conducts workshops, hackathons, and seminars in computing, electronics, and communications. Encourages innovation and research.</p>
+          <button class="join-btn">Join Club</button>
+        </div>
+      </div>
+      <div class="club-card">
+        <img src="images/robotics.jpeg" alt="Robotics Club">
+        <div>
+          <h4>Robotics Club</h4>
+          <p>Focuses on robotics design, AI, Arduino, and competitions. Represents SRM in national and international robotics events.</p>
+          <button class="join-btn">Join Club</button>
+        </div>
+      </div>
+      <div class="club-card">
+        <img src="images/next tech lab.jpg" alt="Next Tech Lab">
+        <div>
+          <h4>Next Tech Lab (NTL)</h4>
+          <p>Premier student-led lab working on AI, Blockchain, Quantum Computing, and VR. Encourages research and startups.</p>
+          <button class="join-btn">Join Club</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sports & Fitness Clubs -->
+    <section class="club-section">
+      <h3>⚽ Sports & Fitness Clubs</h3>
+      <div class="club-card">
+        <img src="images/football.jpeg" alt="Football Club">
+        <div>
+          <h4>Football Club</h4>
+          <p>Trains students and organizes football tournaments at intra and inter-college levels.</p>
+          <button class="join-btn">Join Club</button>
+        </div>
+      </div>
+      <div class="club-card">
+        <img src="images/cricket.jpeg" alt="Cricket Club">
+        <div>
+          <h4>Cricket Club</h4>
+          <p>Active sports club participating in university and state-level cricket tournaments.</p>
+          <button class="join-btn">Join Club</button>
+        </div>
+      </div>
+      <div class="club-card">
+        <img src="images/basket ball.jpeg" alt="Basketball Club">
+        <div>
+          <h4>Basketball Club</h4>
+          <p>Provides coaching and facilities for basketball players. Represents SRM in championships.</p>
+          <button class="join-btn">Join Club</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social & Community Clubs -->
+    <section class="club-section">
+      <h3>🌍 Social & Community Clubs</h3>
+      <div class="club-card">
+        <img src="images/rotaract.jpeg" alt="Rotaract Club">
+        <div>
+          <h4>Rotaract Club of SRM</h4>
+          <p>Works on community service projects, leadership activities, and social causes. Conducts blood donation camps and charity events.</p>
+          <button class="join-btn">Join Club</button>
+        </div>
+      </div>
+      <div class="club-card">
+        <img src="images/nss.jpeg" alt="NSS">
+        <div>
+          <h4>NSS (National Service Scheme)</h4>
+          <p>Encourages students’ involvement in social service with cleanliness drives, rural development, and awareness campaigns.</p>
+          <button class="join-btn">Join Club</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    }
+    // Load theme on page load
+    window.onload = () => {
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    };
+  </script>
+</body>
+</html>
+
